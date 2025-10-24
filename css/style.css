@@ -413,6 +413,14 @@ Products
     position: relative;
     overflow: hidden;
     margin-bottom: 1rem;
+    background-color: #fff;
+    border: 1px solid var(--light-grey);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    min-height: 320px;
 }
 
 .product-tag {
@@ -427,6 +435,10 @@ Products
 }
 
 .product-img img {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    object-fit: contain;
     transition: var(--transition);
 }
 
@@ -1496,5 +1508,136 @@ About Page
     
     .timeline-item:nth-child(even) .timeline-dot {
         left: 23px;
+    }
+}
+
+/*
+=========================
+Collection Detail Pages
+=========================
+*/
+
+.collection-hero {
+    position: relative;
+    padding: 6rem 0;
+    color: white;
+    background-size: cover;
+    background-position: center;
+}
+
+.collection-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.collection-hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+.collection-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.collection-hero p {
+    max-width: 640px;
+    font-size: 1.1rem;
+}
+
+.collection-overview {
+    padding: 4rem 0;
+}
+
+.collection-overview .collection-text {
+    padding: 1rem 0;
+}
+
+.collection-overview .collection-text .lead {
+    font-size: 1.15rem;
+    margin-bottom: 1.5rem;
+}
+
+.collection-overview ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.collection-overview li {
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+}
+
+.collection-overview li i {
+    color: var(--secondary-color);
+    margin-right: 0.75rem;
+}
+
+.signature-pieces {
+    padding: 4rem 0;
+    background-color: var(--light-color);
+}
+
+.signature-pieces .section-title {
+    margin-bottom: 1rem;
+}
+
+.signature-pieces .section-subtitle {
+    margin-bottom: 2rem;
+}
+
+.collection-narrative {
+    padding: 4rem 0;
+}
+
+.collection-narrative blockquote {
+    font-size: 1.1rem;
+    font-style: italic;
+    border-left: 3px solid var(--secondary-color);
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+    color: var(--grey-color);
+}
+
+.collection-cta {
+    padding: 4rem 0;
+    background-color: var(--dark-color);
+    color: white;
+    text-align: center;
+}
+
+.collection-cta .btn {
+    margin-top: 1.5rem;
+}
+
+@media (max-width: 991.98px) {
+    .product-img {
+        min-height: 260px;
+        padding: 1rem;
+    }
+
+    .collection-hero {
+        padding: 4.5rem 0;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .collection-hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .collection-hero p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .product-img {
+        min-height: 200px;
+        padding: 0.75rem;
     }
 }
