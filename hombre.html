@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LUXE - Moda de Lujo</title>
+    <title>RGG Atelier - Moda de Lujo</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -19,15 +19,14 @@
     <!-- Top Bar -->
     <div class="top-bar d-none d-lg-block">
         <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <span><i class="fas fa-truck-fast me-2"></i>Envío gratuito en pedidos superiores a 100€</span>
+            <div class="row align-items-center">
+                <div class="col-md-7">
+                    <span><i class="fas fa-crown me-2"></i>Portfolio personal de Romina Gutiérrez García — Diseñadora de moda</span>
                 </div>
-                <div class="col-md-6 text-end">
-                    <span class="me-3"><i class="fas fa-phone-alt me-2"></i>+34 912 345 678</span>
-                    <a href="#" class="me-3"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="me-3"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="me-3"><i class="fab fa-pinterest"></i></a>
+                <div class="col-md-5 text-end">
+                    <span class="me-3"><i class="fas fa-envelope-open me-2"></i>romina.gutierrez@atelier.com</span>
+                    <a href="https://www.instagram.com" class="me-3" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
         </div>
@@ -36,7 +35,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container">
-            <a class="navbar-brand" href="index.html">LUXE</a>
+            <a class="navbar-brand" href="index.html">RGG Atelier</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -44,6 +43,15 @@
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="colecciones.html">Colecciones</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="galeria.html">Galería</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="nuestra-historia.html">¿Quién soy?</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="mujer.html">Mujer</a>
@@ -54,18 +62,24 @@
                     <li class="nav-item">
                         <a class="nav-link" href="accesorios.html">Accesorios</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="colecciones.html">Colecciones</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="nuestra-historia.html">Nuestra Historia</a>
+                    <li class="nav-item d-none" data-admin-only>
+                        <a class="nav-link" href="cumpleanos.html"><i class="fas fa-gift me-2"></i>Cumpleaños</a>
                     </li>
                 </ul>
-                <div class="navbar-nav ms-auto nav-icons">
-                    <a class="nav-link" href="#"><i class="fas fa-search"></i></a>
-                    <a class="nav-link" href="#"><i class="fas fa-user"></i></a>
-                    <a class="nav-link" href="#"><i class="fas fa-heart"></i></a>
-                    <a class="nav-link" href="#"><i class="fas fa-shopping-bag"></i> <span class="cart-count">0</span></a>
+                <div class="navbar-nav ms-auto nav-icons align-items-center gap-2">
+                    <a class="nav-link" href="galeria.html" title="Galería destacada">
+                        <i class="fas fa-images"></i><span>Portfolio</span>
+                    </a>
+                    <a class="nav-link" href="login.html" data-login-link title="Acceso privado">
+                        <i class="fas fa-user-lock"></i><span>Acceder</span>
+                    </a>
+                    <span class="nav-link admin-pill d-none" data-admin-pill>
+                        <i class="fas fa-crown"></i>
+                        <span data-admin-name></span>
+                    </span>
+                    <a class="nav-link d-none" href="#" data-logout-link title="Cerrar sesión">
+                        <i class="fas fa-sign-out-alt"></i><span>Salir</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -98,6 +112,8 @@
     <div class="container">
         <div class="row">
             <!-- Sidebar Filters -->
+             <!-- FILTROS DEL LADO IZQUIERO NO ACTIVOS POR AHORA 
+
             <div class="col-lg-3">
                 <div class="category-filters">
                     <h4 class="filter-heading">Filtros</h4>
@@ -194,9 +210,12 @@
                     <button class="btn btn-outline-secondary w-100 mt-2">Limpiar</button>
                 </div>
             </div>
+            -->
             
             <!-- Products Grid -->
             <div class="col-lg-9">
+                
+                <!-- Products Grid 
                 <div class="category-header d-flex justify-content-between align-items-center mb-4">
                     <div class="showing-results">
                         Mostrando 6 de 24 productos
@@ -211,23 +230,26 @@
                         </select>
                     </div>
                 </div>
-                
+                -->
+
                 <div class="row">
                     <!-- Product 1 -->
                     <div class="col-6 col-md-4 mb-4">
                         <div class="product-card">
                             <div class="product-img">
-                                <span class="product-tag">Nuevo</span>
                                 <img src="img/traje.webp" alt="Traje elegante" class="img-fluid">
+                                <!-- ICONOS DE LAS INTERACIONES 
+
                                 <div class="product-actions">
                                     <a href="#" class="product-action"><i class="fas fa-shopping-bag"></i></a>
                                     <a href="#" class="product-action"><i class="fas fa-heart"></i></a>
                                     <a href="#" class="product-action"><i class="fas fa-eye"></i></a>
                                 </div>
+                                
+                                -->
                             </div>
                             <div class="product-info">
                                 <h4 class="product-title">Traje elegante</h4>
-                                <div class="product-price">349€</div>
                                 <div class="product-rating">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -245,15 +267,18 @@
                         <div class="product-card">
                             <div class="product-img">
                                 <img src="img/camisa.webp" alt="Camisa formal" class="img-fluid">
+                                <!-- ICONOS DE LAS INTERACIONES 
+
                                 <div class="product-actions">
                                     <a href="#" class="product-action"><i class="fas fa-shopping-bag"></i></a>
                                     <a href="#" class="product-action"><i class="fas fa-heart"></i></a>
                                     <a href="#" class="product-action"><i class="fas fa-eye"></i></a>
                                 </div>
+                                
+                                -->
                             </div>
                             <div class="product-info">
                                 <h4 class="product-title">Camisa formal</h4>
-                                <div class="product-price">89€</div>
                                 <div class="product-rating">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -270,19 +295,20 @@
                     <div class="col-6 col-md-4 mb-4">
                         <div class="product-card">
                             <div class="product-img">
-                                <span class="product-tag bg-danger">-10%</span>
                                 <img src="img/jersey.webp" alt="Jersey cashmere" class="img-fluid">
+                                <!-- ICONOS DE LAS INTERACIONES 
+
                                 <div class="product-actions">
                                     <a href="#" class="product-action"><i class="fas fa-shopping-bag"></i></a>
                                     <a href="#" class="product-action"><i class="fas fa-heart"></i></a>
                                     <a href="#" class="product-action"><i class="fas fa-eye"></i></a>
                                 </div>
+                                
+                                -->
                             </div>
                             <div class="product-info">
                                 <h4 class="product-title">Jersey cashmere</h4>
                                 <div class="product-price">
-                                    <span class="old-price">150€</span>
-                                    135€
                                 </div>
                                 <div class="product-rating">
                                     <i class="fas fa-star"></i>
@@ -301,15 +327,18 @@
                         <div class="product-card">
                             <div class="product-img">
                                 <img src="img/abrigolanahombre.webp" alt="Chaqueta de cuero" class="img-fluid">
+                                <!-- ICONOS DE LAS INTERACIONES 
+
                                 <div class="product-actions">
                                     <a href="#" class="product-action"><i class="fas fa-shopping-bag"></i></a>
                                     <a href="#" class="product-action"><i class="fas fa-heart"></i></a>
                                     <a href="#" class="product-action"><i class="fas fa-eye"></i></a>
                                 </div>
+                                
+                                -->
                             </div>
                             <div class="product-info">
                                 <h4 class="product-title">Chaqueta de cuero</h4>
-                                <div class="product-price">295€</div>
                                 <div class="product-rating">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -326,17 +355,19 @@
                     <div class="col-6 col-md-4 mb-4">
                         <div class="product-card">
                             <div class="product-img">
-                                <span class="product-tag">Nuevo</span>
                                 <img src="img/pantalonchino.webp" alt="Pantalón chino" class="img-fluid">
+                                <!-- ICONOS DE LAS INTERACIONES 
+
                                 <div class="product-actions">
                                     <a href="#" class="product-action"><i class="fas fa-shopping-bag"></i></a>
                                     <a href="#" class="product-action"><i class="fas fa-heart"></i></a>
                                     <a href="#" class="product-action"><i class="fas fa-eye"></i></a>
                                 </div>
+                                
+                                -->
                             </div>
                             <div class="product-info">
                                 <h4 class="product-title">Pantalón chino</h4>
-                                <div class="product-price">95€</div>
                                 <div class="product-rating">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -353,19 +384,20 @@
                     <div class="col-6 col-md-4 mb-4">
                         <div class="product-card">
                             <div class="product-img">
-                                <span class="product-tag bg-danger">-15%</span>
                                 <img src="img/zapatos.webp" alt="Zapatos Oxford" class="img-fluid">
+                                <!-- ICONOS DE LAS INTERACIONES 
+
                                 <div class="product-actions">
                                     <a href="#" class="product-action"><i class="fas fa-shopping-bag"></i></a>
                                     <a href="#" class="product-action"><i class="fas fa-heart"></i></a>
                                     <a href="#" class="product-action"><i class="fas fa-eye"></i></a>
                                 </div>
+                                
+                                -->
                             </div>
                             <div class="product-info">
                                 <h4 class="product-title">Zapatos Oxford</h4>
                                 <div class="product-price">
-                                    <span class="old-price">195€</span>
-                                    166€
                                 </div>
                                 <div class="product-rating">
                                     <i class="fas fa-star"></i>
@@ -387,8 +419,8 @@
                             <a class="page-link" href="#" tabindex="-1" aria-disabled="true"><i class="fas fa-chevron-left"></i></a>
                         </li>
                         <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <!-- Pagination <li class="page-item"><a class="page-link" href="#">2</a></li> -->
+                        <!-- Pagination <li class="page-item"><a class="page-link" href="#">3</a></li> -->
                         <li class="page-item">
                             <a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a>
                         </li>
@@ -404,7 +436,7 @@
         <div class="container">
             <div class="row py-5">
                 <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-                    <h5 class="footer-heading">LUXE</h5>
+                    <h5 class="footer-heading">RGG Atelier</h5>
                     <p class="footer-text">Moda de lujo con diseños exclusivos y materiales premium. Experiencia de compra única con atención personalizada.</p>
                     <div class="social-icons">
                         <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
@@ -458,6 +490,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- AOS Animation JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/admin-config.js"></script>
+    <script src="js/auth.js"></script>
     <!-- Custom JS -->
     <script src="js/script.js"></script>
 </body>
