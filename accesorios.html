@@ -521,17 +521,17 @@
 .mosaic-large {
     grid-column: span 6;
     grid-row: span 2;
-    max-height: 550px;
+    max-height: none;
 }
 
 .mosaic-medium {
     grid-column: span 4;
-    max-height: 400px;
+    max-height: none;
 }
 
 .mosaic-small {
     grid-column: span 3;
-    max-height: 350px;
+    max-height: none;
 }
 
 /* Configuramos el diseño de mosaico específico para un efecto puzzle */
@@ -576,7 +576,6 @@
 }
 
 .product-img {
-    height: 75%; /* Control de altura de imagen para mantener proporción */
     overflow: hidden;
     position: relative;
 }
@@ -681,6 +680,17 @@
     top: 20px;
     align-self: flex-start;
 }
+@media (max-width: 1199.98px) {
+  .accessories-mosaic {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    justify-items: center;          /* centra cada tarjeta en su celda */
+  }
+  .mosaic-item {                    /* anula spans forzados */
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+}
+
 
 /* Media queries mejorados */
 @media (max-width: 1199.98px) {
@@ -724,70 +734,37 @@
 </style>
 
 <!-- Footer -->
-<footer class="bg-dark text-white pt-5">
-    <div class="container">
-        <div class="row">
-            <!-- About -->
-            <div class="col-md-3 mb-4">
-                <h5 class="footer-heading">RGG Atelier</h5>
-                <p class="footer-text">Elegancia atemporal para quienes aprecian lo excepcional. Descubre nuestra selección de prendas de lujo diseñadas para perdurar.</p>
-                <div class="footer-social mt-3">
-                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-pinterest"></i></a>
+    <footer class="footer">
+        <div class="container py-5">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5 class="footer-heading">Romina Gutiérrez García</h5>
+                    <p class="footer-text">Diseñadora de moda enfocada en la sostenibilidad, la investigación textil y las narrativas personales.</p>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="footer-heading">Contacto</h5>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-envelope"></i> romina.gutierrez@atelier.com</li>
+                        <li><i class="fas fa-location-dot"></i> Madrid · Disponible para colaboraciones</li>
+                        <li><i class="fas fa-download"></i> <a href="colecciones.html">Ver portafolio completo</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="footer-heading">Redes</h5>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com" target="_blank" rel="noopener" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com" target="_blank" rel="noopener" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="mailto:romina.gutierrez@atelier.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+                    </div>
                 </div>
             </div>
-            
-            <!-- Information -->
-            <div class="col-md-3 mb-4">
-                <h5 class="footer-heading">Información</h5>
-                <ul class="footer-links">
-                    <li><a href="nuestra-historia.html">Acerca de nosotros</a></li>
-                    <li><a href="#">Información de entrega</a></li>
-                    <li><a href="#">Política de privacidad</a></li>
-                    <li><a href="#">Términos y condiciones</a></li>
-                    <li><a href="#">Devoluciones</a></li>
-                </ul>
-            </div>
-            
-            <!-- Account -->
-            <div class="col-md-3 mb-4">
-                <h5 class="footer-heading">Mi cuenta</h5>
-                <ul class="footer-links">
-                    <li><a href="#">Mi cuenta</a></li>
-                    <li><a href="#">Historial de pedidos</a></li>
-                    <li><a href="#">Lista de deseos</a></li>
-                    <li><a href="#">Newsletter</a></li>
-                    <li><a href="#">Cupones de descuento</a></li>
-                </ul>
-            </div>
-            
-            <!-- Contact -->
-            <div class="col-md-3 mb-4">
-                <h5 class="footer-heading">Contacto</h5>
-                <address class="footer-contact">
-                    <p><i class="fas fa-map-marker-alt"></i> Calle Serrano 12, Madrid, España</p>
-                    <p><i class="fas fa-phone"></i> +34 91 123 45 67</p>
-                    <p><i class="fas fa-envelope"></i> info@luxe.com</p>
-                    <p><i class="fas fa-clock"></i> Lun-Sáb, 10:00 - 20:00</p>
-                </address>
+            <div class="row pt-4 mt-3 border-top">
+                <div class="col text-center">
+                    <p class="mb-0">© 2025 Romina Gutiérrez García. Diseñado para compartir creatividad.</p>
+                </div>
             </div>
         </div>
-        
-        <hr class="footer-divider">
-        
-        <!-- Bottom Footer -->
-        <div class="row py-3">
-            <div class="col-md-6 mb-3 mb-md-0">
-                <p class="mb-0">© 2023 LUXE. Todos los derechos reservados.</p>
-            </div>
-            <div class="col-md-6 text-md-end">
-                <img src="img/payment-methods.png" alt="Métodos de pago" class="payment-methods">
-            </div>
-        </div>
-    </div>
-</footer>
+    </footer>
 
 <!-- Scripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
