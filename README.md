@@ -5,6 +5,11 @@ Este repositorio se usará exclusivamente para eldesarrollo de la Web de Romina 
     1. Cumpleaños.htnml (Acceso único con cuenta de admin )
         1.1 Mi historia.html (Su vida recorrida con fotos sullas desde pequeña)
         1.2 Juego.html/js
+
+### Gestión de usuarios administradores
+- Para añadir o quitar cuentas con acceso privado edita el archivo [`js/admin-config.js`](js/admin-config.js).
+- Cada entrada está formada por el correo electrónico (en minúsculas), la contraseña y el nombre que aparecerá en la web.
+- Tras guardar los cambios no es necesario modificar más archivos, la autenticación los detectará automáticamente.
         
 ## ERRORES
     1- LOGIN
