@@ -21,7 +21,8 @@
       </header>
 
       <div class="login-body">
-        <form action="#" method="post" autocomplete="on">
+        <div id="loginFeedback" class="alert" role="alert" aria-live="polite"></div>
+        <form id="loginForm" action="#" method="post" autocomplete="on">
           <div class="form-group">
             <label for="email" class="form-label">Correo electrónico</label>
             <input type="email" id="email" name="email" class="form-control" placeholder="tucorreo@ejemplo.com" required />
@@ -41,7 +42,7 @@
             <a href="#" class="link">¿Olvidaste tu contraseña?</a>
           </div>
 
-          <button class="btn btn-primary" type="submit">Iniciar sesión</button> 
+          <button class="btn btn-primary" type="submit">Iniciar sesión</button>
 
           <div class="divider">o continúa con</div>
 
@@ -58,11 +59,82 @@
     </section>
   </main>
 
+  <script src="js/admin-config.js"></script>
+  <script src="js/auth.js"></script>
   <script>
     function togglePassword() {
       const input = document.getElementById('password');
       input.type = input.type === 'password' ? 'text' : 'password';
     }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('loginForm');
+      const feedback = document.getElementById('loginFeedback');
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const params = new URLSearchParams(window.location.search);
+      const redirectParam = params.get('redirect');
+      const redirectTarget = redirectParam ? decodeURIComponent(redirectParam) : 'cumpleanos.html';
+
+      let redirectOnSubmit = false;
+
+      const showFeedback = (type, message) => {
+        if (!type) {
+          feedback.className = 'alert';
+          feedback.textContent = '';
+          return;
+        }
+
+        feedback.className = `alert alert-${type} show`;
+        feedback.textContent = message;
+      };
+
+      const session = window.RGGAuth.getSession();
+      if (session) {
+        redirectOnSubmit = true;
+        showFeedback('info', `Ya has iniciado sesión como ${session.name}. Pulsa en "Ir a la zona privada" para continuar.`);
+        submitBtn.textContent = 'Ir a la zona privada';
+
+        const logoutButton = document.createElement('button');
+        logoutButton.type = 'button';
+        logoutButton.className = 'link-button';
+        logoutButton.textContent = 'Cerrar sesión';
+        logoutButton.addEventListener('click', () => {
+          window.RGGAuth.logout();
+          redirectOnSubmit = false;
+          submitBtn.textContent = 'Iniciar sesión';
+          submitBtn.disabled = false;
+          showFeedback(null, '');
+          showFeedback('info', 'Introduce tus credenciales para acceder.');
+        });
+        feedback.appendChild(document.createTextNode(' '));
+        feedback.appendChild(logoutButton);
+      }
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        if (redirectOnSubmit) {
+          window.location.href = redirectTarget;
+          return;
+        }
+
+        submitBtn.disabled = true;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        const sessionData = window.RGGAuth.attemptLogin(email, password);
+
+        if (sessionData) {
+          showFeedback('success', `¡Hola, ${sessionData.name.split(' ')[0]}! Redirigiendo a tu espacio privado...`);
+          setTimeout(() => {
+            window.location.href = redirectTarget;
+          }, 1200);
+        } else {
+          showFeedback('danger', 'Las credenciales no son válidas. Comprueba tu correo y contraseña.');
+          submitBtn.disabled = false;
+        }
+      });
+    });
   </script>
 </body>
 </html>
