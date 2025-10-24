@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Galería de Moda</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+    
+    header {
+      background: linear-gradient(135deg, #000, #333);
+      color: #fff;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    nav ul li {
+      margin-left: 20px;
+      position: relative;
+    }
+    
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    nav ul li a:hover {
+      color: #ccc;
+    }
+    
+    .dropdown .submenu {
+      display: none;
+      position: absolute;
+      background: #333;
+      min-width: 200px;
+      border-radius: 0 0 5px 5px;
+      z-index: 1;
+    }
+    
+    .dropdown:hover .submenu {
+      display: block;
+    }
+    
+    .submenu li {
+      margin: 0;
+      padding: 10px;
+      border-bottom: 1px solid #444;
+    }
+    
+    .submenu li:last-child {
+      border-bottom: none;
+    }
+    
+    .intro {
+      text-align: center;
+      padding: 30px 20px;
+      background: #fff;
+      margin: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .intro h2 {
+      margin-bottom: 10px;
+      color: #333;
+    }
+    
+    .intro p {
+      color: #666;
+    }
+    
+    .galeria {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 25px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Flip Card */
+    .flip-card {
+      background: transparent;
+      width: 100%;
+      height: 350px;
+      perspective: 1000px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .flip-card:hover {
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.7s;
+      transform-style: preserve-3d;
+      border-radius: 10px;
+    }
+
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front,
+    .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .flip-card-front img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    
+    .flip-card:hover .flip-card-front img {
+      transform: scale(1.05);
+    }
+
+    .flip-card-back {
+      background: linear-gradient(135deg, #1a1a1a, #3a3a3a);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      transform: rotateY(180deg);
+      box-sizing: border-box;
+    }
+
+    .flip-card-back h3 {
+      margin: 0 0 10px 0;
+      font-size: 1.5rem;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .flip-card-back .designer {
+      font-weight: bold;
+      color: #f8d56b;
+      margin-bottom: 5px;
+      font-size: 1.1rem;
+    }
+    
+    .flip-card-back .style {
+      font-style: italic;
+      margin-bottom: 15px;
+      color: #ccc;
+    }
+    
+    .flip-card-back .price {
+      font-size: 1.3rem;
+      color: #4CAF50;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+
+    .flip-card-back p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+    
+    .flip-card-back .details {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-top: auto;
+      font-size: 0.8rem;
+      color: #aaa;
+    }
+    
+    .flip-card-back .material {
+      color: #8bc34a;
+    }
+    
+    .flip-card-back .season {
+      color: #03a9f4;
+    }
+
+    footer {
+      background: linear-gradient(135deg, #000, #222);
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      margin-top: 40px;
+    }
+    
+    footer p {
+      margin: 0;
+    }
+    
+    @media (max-width: 768px) {
+      .galeria {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      }
+      
+      .flip-card {
+        height: 300px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .galeria {
+        grid-template-columns: 1fr;
+      }
+      
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      nav ul {
+        flex-direction: column;
+        margin-top: 15px;
+      }
+      
+      nav ul li {
+        margin: 5px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="logo">Moda D M</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li class="dropdown">
+          <a href="#">Explorar ▼</a>
+          <ul class="submenu">
+            <li><a href="estadisticas.html">📊 Estadísticas</a></li>
+            <li><a href="valoraciones.html">⭐ Valoraciones</a></li>
+            <li><a href="encuestas.html">📋 Encuestas</a></li>
+            <li><a href="galeria.html">🖼️ Galería</a></li>
+            <li><a href="videos.html">🎥 Videos</a></li>
+          </ul>
+        </li>
+        
+      </ul>
+    </nav>
+  </header>
+
+  <!-- CONTENIDO -->
+  <section class="intro">
+    <h2>🖼️ Nuestra Galería de Moda</h2>
+    <p>Descubre nuestras colecciones exclusivas. Pasa el cursor sobre las imágenes para ver los detalles.</p>
+
+    <div class="galeria">
+      <!-- Producto 1 -->
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="https://media.istockphoto.com/id/1018293976/es/foto/mujer-moda-atractiva-posando-en-su%C3%A9ter-de-moda-blanco-pantal%C3%B3n-beige-y-los-zapatos-de-oto%C3%B1o-en.jpg?s=612x612&w=0&k=20&c=Wj5kZd-RtEzCAecIStOrLvuCziOlAIN48JkC49Na1x4=" alt="Suéter Blanco">
+          </div>
+          <div class="flip-card-back">
+            <h3>Suéter Blanco</h3>
+            <div class="designer">Por: Stella McCartney</div>
+            <div class="style">Estilo: Casual Elegante</div>
+            <div class="price">$189.99</div>
+            <p>Conjunto elegante con pantalón beige. Perfecto para otoño, fabricado con lana merino de alta calidad para máxima comodidad.</p>
+            <div class="details">
+              <span class="material">Material: 70% Lana, 30% Algodón</span>
+              <span class="season">Temporada: Otoño/Invierno</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Producto 2 -->
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="https://ichef.bbci.co.uk/ace/ws/640/amz/worldservice/live/assets/images/2011/01/25/110125150846_sp_galeria_paris_galliano_8.jpg.webp" alt="Alta Costura">
+          </div>
+          <div class="flip-card-back">
+            <h3>Alta Costura</h3>
+            <div class="designer">Por: John Galliano</div>
+            <div class="style">Estilo: Avant-garde</div>
+            <div class="price">$2,499.99</div>
+            <p>Diseño de pasarela inspirado en la moda parisina. Pieza exclusiva de edición limitada con detalles hechos a mano.</p>
+            <div class="details">
+              <span class="material">Material: Seda y encajes</span>
+              <span class="season">Temporada: Primavera/Verano</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Producto 3 -->
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="https://media.istockphoto.com/id/1284839442/es/foto/estilo-de-calle-shoot-mujer-en-la-pared-rosa-swag-chica-con-chaqueta-de-jeans-vestido-gris.jpg?s=612x612&w=0&k=20&c=mo60zM16Oe3t60jFlb-bzJo5wMomhaRef7KMCgB5zjE=" alt="Look Urbano">
+          </div>
+          <div class="flip-card-back">
+            <h3>Look Urbano</h3>
+            <div class="designer">Por: Virgil Abloh</div>
+            <div class="style">Estilo: Streetwear</div>
+            <div class="price">$349.99</div>
+            <p>Chaqueta de mezclilla con vestido gris. Estilo casual y moderno perfecto para el día a día con un toque de sofisticación.</p>
+            <div class="details">
+              <span class="material">Material: Denim y algodón</span>
+              <span class="season">Temporada: Todo el año</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Producto 4 -->
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="https://img.freepik.com/foto-gratis/mujer-joven-sentada-escaleras-traje-azul_1303-23952.jpg?semt=ais_hybrid&w=740&q=80" alt="Traje Azul">
+          </div>
+          <div class="flip-card-back">
+            <h3>Traje Azul</h3>
+            <div class="designer">Por: Giorgio Armani</div>
+            <div class="style">Estilo: Business Elegance</div>
+            <div class="price">$599.99</div>
+            <p>Elegante conjunto azul ideal para reuniones y eventos. Corte impecable que realza la silueta con tejidos premium.</p>
+            <div class="details">
+              <span class="material">Material: 100% Lana Super 120s</span>
+              <span class="season">Temporada: Otoño/Invierno</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Producto 5 -->
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="https://www.hola.com/horizon/landscape/26ec870d42c4-gettyimages-2171011113.jpg" alt="Vestido Rojo">
+          </div>
+          <div class="flip-card-back">
+            <h3>Vestido Rojo</h3>
+            <div class="designer">Por: Valentino</div>
+            <div class="style">Estilo: Evening Glam</div>
+            <div class="price">$1,299.99</div>
+            <p>Vestido elegante para ocasiones especiales con drapeados que crean un efecto espectacular al movimiento.</p>
+            <div class="details">
+              <span class="material">Material: Seda y chiffon</span>
+              <span class="season">Temporada: Colección Crucero</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Producto 6 -->
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="https://media.istockphoto.com/id/1349960077/es/foto/desgaste-de-mezclilla-mecedora.jpg?s=612x612&w=0&k=20&c=VO4BVt-M7L-hARF1BLavMh-XsVyXzKqCuQipFTNKf9o=" alt="Denim Chic">
+          </div>
+          <div class="flip-card-back">
+            <h3>Denim Chic</h3>
+            <div class="designer">Por: Diesel</div>
+            <div class="style">Estilo: Denim Moderno</div>
+            <div class="price">$279.99</div>
+            <p>Conjunto moderno con mezclilla para un look fresco. Tratamientos especiales en la tela para mayor comodidad y estilo.</p>
+            <div class="details">
+              <span class="material">Material: Denim elastano</span>
+              <span class="season">Temporada: Primavera/Verano</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Moda D M - Todos los derechos reservados</p>
+  </footer>
+</body>
+</html>
+
+
+
