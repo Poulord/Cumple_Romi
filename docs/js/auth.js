@@ -44,7 +44,7 @@
 
   const STORAGE_KEY = "rgg-admin-session";
 
-  const getSession = () => {
+  const readStoredSession = () => {
     try {
       const raw = sessionStorage.getItem(STORAGE_KEY);
       return raw ? JSON.parse(raw) : null;
@@ -54,12 +54,99 @@
     }
   };
 
+  let CURRENT_SESSION = readStoredSession();
+
   const setSession = (session) => {
+    CURRENT_SESSION = session || null;
+
     if (!session) {
       sessionStorage.removeItem(STORAGE_KEY);
       return;
     }
+
     sessionStorage.setItem(STORAGE_KEY, JSON.stringify(session));
+  };
+
+  const sessionsAreEqual = (a, b) => {
+    if (!a && !b) {
+      return true;
+    }
+
+    if (!a || !b) {
+      return false;
+    }
+
+    return (
+      String(a.email || "").toLowerCase() === String(b.email || "").toLowerCase() &&
+      String(a.name || "") === String(b.name || "") &&
+      Boolean(a.isAdmin) === Boolean(b.isAdmin)
+    );
+  };
+
+  const sessionFromSupabase = (supabaseSession) => {
+    if (!supabaseSession || !supabaseSession.user) {
+      return null;
+    }
+
+    const { user } = supabaseSession;
+    const metadata = user.user_metadata || {};
+    const email = String(user.email || "").trim().toLowerCase();
+    const name =
+      metadata.name ||
+      metadata.full_name ||
+      metadata.display_name ||
+      metadata.user_name ||
+      email;
+
+    const isAdminMetadata =
+      metadata.isAdmin ??
+      metadata.is_admin ??
+      metadata.admin ??
+      (metadata.role === "admin");
+
+    return {
+      email,
+      name,
+      isAdmin: Boolean(isAdminMetadata),
+    };
+  };
+
+  const refreshSessionFromSupabase = async ({ updateUi = true } = {}) => {
+    if (!window.supabase || !supabase.auth || typeof supabase.auth.getSession !== "function") {
+      return { session: CURRENT_SESSION, changed: false };
+    }
+
+    try {
+      const { data, error } = await supabase.auth.getSession();
+
+      if (error) {
+        console.warn("No se pudo obtener la sesión de Supabase", error);
+        return { session: CURRENT_SESSION, changed: false };
+      }
+
+      const supabaseSession = sessionFromSupabase(data && data.session);
+      const previousSession = CURRENT_SESSION;
+
+      if (!sessionsAreEqual(previousSession, supabaseSession)) {
+        setSession(supabaseSession);
+
+        if (updateUi) {
+          updateNav();
+        }
+
+        return { session: CURRENT_SESSION, changed: true };
+      }
+
+      return { session: CURRENT_SESSION, changed: false };
+    } catch (error) {
+      console.warn("No se pudo obtener la sesión de Supabase", error);
+      return { session: CURRENT_SESSION, changed: false };
+    }
+  };
+
+  const getSession = () => {
+    refreshSessionFromSupabase();
+    return CURRENT_SESSION;
   };
 
   const isAdmin = () => Boolean(getSession());
@@ -98,26 +185,49 @@
     });
   };
 
-  const attemptLogin = (email, password) => {
-    const normalizedEmail = String(email || "").trim().toLowerCase();
-    const user = ADMIN_USERS[normalizedEmail];
-
-    if (!user || user.password !== String(password)) {
+  const attemptLogin = async (email, password) => {
+    if (!window.supabase || !supabase.auth || typeof supabase.auth.signInWithPassword !== "function") {
+      console.warn("Supabase no está disponible para iniciar sesión");
       return null;
     }
 
-    const session = {
-      email: normalizedEmail,
-      name: user.name,
-      loginAt: Date.now(),
-    };
+    const normalizedEmail = String(email || "").trim();
+    const normalizedPassword = typeof password === "string" ? password : String(password || "");
 
-    setSession(session);
-    updateNav();
-    return session;
+    try {
+      const { error } = await supabase.auth.signInWithPassword({
+        email: normalizedEmail,
+        password: normalizedPassword,
+      });
+
+      if (error) {
+        console.warn("No se pudo iniciar sesión", error);
+        return null;
+      }
+
+      const { session } = await refreshSessionFromSupabase({ updateUi: false });
+
+      if (!session) {
+        return null;
+      }
+
+      updateNav();
+      return session;
+    } catch (error) {
+      console.warn("No se pudo iniciar sesión", error);
+      return null;
+    }
   };
 
-  const logout = () => {
+  const logout = async () => {
+    if (window.supabase && supabase.auth && typeof supabase.auth.signOut === "function") {
+      try {
+        await supabase.auth.signOut();
+      } catch (error) {
+        console.warn("No se pudo cerrar sesión en Supabase", error);
+      }
+    }
+
     setSession(null);
     updateNav();
   };
