@@ -2,6 +2,14 @@
 
   
   const DEFAULT_ADMIN_USERS = {
+    "romina.gutierrez@atelier.com": {
+      password: "atelier2024",
+      name: "Romina Gutiérrez",
+    },
+    "isaac.gutierrez@atelier.com": {
+      password: "tequiero",
+      name: "Isaac Gutiérrez",
+    },
   };
 
   const buildAdminDirectory = () => {
