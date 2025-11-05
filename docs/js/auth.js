@@ -1,5 +1,7 @@
 (function () {
 
+  const DEFAULT_ADMIN_USERS = {};
+
   const buildAdminDirectory = () => {
     const configuredUsers =
       window.RGG_ADMIN_USERS && typeof window.RGG_ADMIN_USERS === "object"
