@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Test Perfil Supabase</title>
+</head>
+<body style="font-family:sans-serif; padding:2em">
+  <h2>🔍 Verificación de perfil Supabase</h2>
+  <p id="status">Cargando...</p>
+  <pre id="output" style="background:#eee; padding:1em; border-radius:8px"></pre>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabaseClient.js"></script>
+  <script>
+    async function main() {
+      const output = document.getElementById('output');
+      const status = document.getElementById('status');
+      try {
+        const { data: { session } } = await supabase.auth.getSession();
+        if (!session) {
+          status.textContent = '❌ No hay sesión activa.';
+          return;
+        }
+
+        status.textContent = '✅ Sesión activa. Consultando perfil...';
+        const uid = session.user.id;
+        const { data: prof, error } = await supabase
+          .from('profiles')
+          .select('display_name, is_admin')
+          .eq('id', uid)
+          .maybeSingle();
+
+        if (error) throw error;
+
+        const name =
+          (prof?.display_name && prof.display_name.trim()) ||
+          (session.user.email.split('@')[0]);
+
+        output.textContent = JSON.stringify({
+          email: session.user.email,
+          name,
+          is_admin: prof?.is_admin ?? false,
+        }, null, 2);
+      } catch (err) {
+        status.textContent = '⚠️ Error: ' + err.message;
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>
