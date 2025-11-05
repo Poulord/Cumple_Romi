@@ -83,32 +83,103 @@
     );
   };
 
-  const sessionFromSupabase = (supabaseSession) => {
+  const fetchOrCreateProfile = async (user) => {
+    if (!user || !user.id) {
+      return null;
+    }
+
+    if (!window.supabase || typeof supabase.from !== "function") {
+      return null;
+    }
+
+    try {
+      const { data: profile, error } = await supabase
+        .from("profiles")
+        .select("display_name, is_admin")
+        .eq("id", user.id)
+        .maybeSingle();
+
+      if (error && error.code !== "PGRST116") {
+        console.warn("No se pudo obtener el perfil del usuario", error);
+        return null;
+      }
+
+      if (profile) {
+        return profile;
+      }
+
+      const fallbackDisplayName =
+        typeof user.email === "string" ? user.email : String(user.email || "");
+
+      const { error: insertError } = await supabase.from("profiles").insert({
+        id: user.id,
+        display_name: fallbackDisplayName,
+        is_admin: false,
+      });
+
+      if (insertError && insertError.code !== "23505") {
+        console.warn("No se pudo crear el perfil del usuario", insertError);
+      }
+
+      const { data: createdProfile, error: reloadError } = await supabase
+        .from("profiles")
+        .select("display_name, is_admin")
+        .eq("id", user.id)
+        .maybeSingle();
+
+      if (reloadError && reloadError.code !== "PGRST116") {
+        console.warn("No se pudo recargar el perfil del usuario", reloadError);
+        return null;
+      }
+
+      return createdProfile || null;
+    } catch (error) {
+      console.warn("No se pudo sincronizar el perfil del usuario", error);
+      return null;
+    }
+  };
+
+  const sessionFromSupabase = async (supabaseSession) => {
     if (!supabaseSession || !supabaseSession.user) {
       return null;
     }
 
     const { user } = supabaseSession;
-    const metadata = user.user_metadata || {};
-    const email = String(user.email || "").trim().toLowerCase();
-    const name =
-      metadata.name ||
-      metadata.full_name ||
-      metadata.display_name ||
-      metadata.user_name ||
-      email;
-
-    const isAdminMetadata =
-      metadata.isAdmin ??
-      metadata.is_admin ??
-      metadata.admin ??
-      (metadata.role === "admin");
+    const profile = await fetchOrCreateProfile(user);
+    const normalizedEmail = String(user.email || "").trim().toLowerCase();
+    const metadataFullName = user.user_metadata && user.user_metadata.full_name;
+    const metadataFirstName =
+      typeof metadataFullName === "string" && metadataFullName.trim()
+        ? metadataFullName.trim().split(/\s+/)[0]
+        : null;
+    const emailBase = normalizedEmail.includes("@")
+      ? normalizedEmail.split("@")[0]
+      : normalizedEmail;
 
     return {
-      email,
-      name,
-      isAdmin: Boolean(isAdminMetadata),
+      email: normalizedEmail,
+      name:
+        (profile && profile.display_name) ||
+        metadataFirstName ||
+        emailBase ||
+        normalizedEmail,
+      isAdmin: Boolean(profile && profile.is_admin),
     };
+  };
+
+  const loadSessionFromSupabase = async () => {
+    try {
+      const { data, error } = await supabase.auth.getSession();
+
+      if (error) {
+        return { session: null, error };
+      }
+
+      const normalizedSession = await sessionFromSupabase(data && data.session);
+      return { session: normalizedSession, error: null };
+    } catch (error) {
+      return { session: null, error };
+    }
   };
 
   const refreshSessionFromSupabase = async ({ updateUi = true } = {}) => {
@@ -117,14 +188,13 @@
     }
 
     try {
-      const { data, error } = await supabase.auth.getSession();
+      const { session: supabaseSession, error } = await loadSessionFromSupabase();
 
       if (error) {
         console.warn("No se pudo obtener la sesión de Supabase", error);
         return { session: CURRENT_SESSION, changed: false };
       }
 
-      const supabaseSession = sessionFromSupabase(data && data.session);
       const previousSession = CURRENT_SESSION;
 
       if (!sessionsAreEqual(previousSession, supabaseSession)) {
@@ -149,7 +219,10 @@
     return CURRENT_SESSION;
   };
 
-  const isAdmin = () => Boolean(getSession());
+  const isAdmin = () => {
+    const session = getSession();
+    return Boolean(session && session.isAdmin);
+  };
 
   const updateNav = () => {
     const adminOnly = document.querySelectorAll("[data-admin-only]");
@@ -161,7 +234,7 @@
     const session = getSession();
 
     adminOnly.forEach((el) => {
-      el.classList.toggle("d-none", !session);
+      el.classList.toggle("d-none", !(session && session.isAdmin));
     });
 
     loginLinks.forEach((el) => {
@@ -205,10 +278,20 @@
         return null;
       }
 
-      const { session } = await refreshSessionFromSupabase({ updateUi: false });
+      const { session, error: sessionError } = await loadSessionFromSupabase();
+
+      if (sessionError) {
+        console.warn("No se pudo obtener la sesión tras iniciar sesión", sessionError);
+        return null;
+      }
 
       if (!session) {
+        console.warn("Supabase no devolvió una sesión válida tras iniciar sesión");
         return null;
+      }
+
+      if (!sessionsAreEqual(CURRENT_SESSION, session)) {
+        setSession(session);
       }
 
       updateNav();
