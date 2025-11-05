@@ -116,7 +116,7 @@
         feedback.appendChild(logoutButton);
       }
 
-      form.addEventListener('submit', (event) => {
+      form.addEventListener('submit', async (event) => {
         event.preventDefault();
 
         if (redirectOnSubmit) {
@@ -128,15 +128,21 @@
         const email = form.email.value;
         const password = form.password.value;
 
-        const sessionData = window.RGGAuth.attemptLogin(email, password);
+        try {
+          const sessionData = await window.RGGAuth.attemptLogin(email, password);
 
-        if (sessionData) {
-          showFeedback('success', `¡Hola, ${sessionData.name.split(' ')[0]}! Redirigiendo a tu espacio privado...`);
-          setTimeout(() => {
-            window.location.href = redirectTarget;
-          }, 1200);
-        } else {
-          showFeedback('danger', 'Las credenciales no son válidas. Comprueba tu correo y contraseña.');
+          if (sessionData) {
+            showFeedback('success', `¡Hola, ${sessionData.name.split(' ')[0]}! Redirigiendo a tu espacio privado...`);
+            setTimeout(() => {
+              window.location.href = redirectTarget;
+            }, 1200);
+          } else {
+            showFeedback('danger', 'Las credenciales no son válidas. Comprueba tu correo y contraseña.');
+            submitBtn.disabled = false;
+          }
+        } catch (error) {
+          console.error('Error inesperado al iniciar sesión', error);
+          showFeedback('danger', 'Ocurrió un error al intentar iniciar sesión. Inténtalo nuevamente.');
           submitBtn.disabled = false;
         }
       });
