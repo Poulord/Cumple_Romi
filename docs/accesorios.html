@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RGG Atelier - Moda de Lujo</title>
+    <title>Accesorios - RGG Atelier</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -13,7 +13,7 @@
     <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
     <!-- Top Bar -->
@@ -54,13 +54,13 @@
                         <a class="nav-link" href="nuestra-historia.html">¿Quién soy?</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="mujer.html">Mujer</a>
+                        <a class="nav-link" href="mujer.html">Mujer</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="hombre.html">Hombre</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="accesorios.html">Accesorios</a>
+                        <a class="nav-link active" href="accesorios.html">Accesorios</a>
                     </li>
                     <li class="nav-item d-none" data-admin-only>
                         <a class="nav-link" href="cumpleanos.html"><i class="fas fa-gift me-2"></i>Cumpleaños</a>
@@ -90,7 +90,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Mujer</li>
+            <li class="breadcrumb-item active" aria-current="page">Accesorios</li>
         </ol>
     </nav>
 </div>
@@ -100,8 +100,8 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-6">
-                <h1 class="category-title">Colección Mujer</h1>
-                <p class="category-description">Descubre nuestra exclusiva colección para mujer con diseños elegantes y sofisticados que realzan tu estilo personal.</p>
+                <h1 class="category-title">Accesorios de Lujo</h1>
+                <p class="category-description">Completa tu look con nuestra exquisita colección de accesorios. Piezas cuidadosamente elaboradas que añaden un toque distintivo a cualquier conjunto.</p>
             </div>
         </div>
     </div>
@@ -112,9 +112,9 @@
     <div class="container">
         <div class="row">
             <!-- Sidebar Filters -->
-            
+
             <!-- FILTROS DEL LADO IZQUIERO NO ACTIVOS POR AHORA 
-            <div class="col-lg-3">
+            <div class="col-lg-3 sidebar-filters">
                 <div class="category-filters">
                     <h4 class="filter-heading">Filtros</h4>
                     
@@ -122,12 +122,12 @@
                         <h5 class="filter-title">Categorías</h5>
                         <ul class="filter-list">
                             <li><a href="#" class="active">Todos</a></li>
-                            <li><a href="#">Vestidos</a></li>
-                            <li><a href="#">Blusas</a></li>
-                            <li><a href="#">Pantalones</a></li>
-                            <li><a href="#">Faldas</a></li>
-                            <li><a href="#">Abrigos</a></li>
-                            <li><a href="#">Chaquetas</a></li>
+                            <li><a href="#">Bolsos</a></li>
+                            <li><a href="#">Joyería</a></li>
+                            <li><a href="#">Cinturones</a></li>
+                            <li><a href="#">Bufandas</a></li>
+                            <li><a href="#">Gafas de sol</a></li>
+                            <li><a href="#">Sombreros</a></li>
                         </ul>
                     </div>
                     
@@ -154,19 +154,19 @@
                                 <span class="color-name">Negro</span>
                             </label>
                             <label class="color-option">
-                                <input type="checkbox" name="color[]" value="white">
-                                <span class="color-swatch" style="background-color: #fff; border: 1px solid #ddd;"></span>
-                                <span class="color-name">Blanco</span>
+                                <input type="checkbox" name="color[]" value="gold">
+                                <span class="color-swatch" style="background-color: #FFD700;"></span>
+                                <span class="color-name">Dorado</span>
                             </label>
                             <label class="color-option">
-                                <input type="checkbox" name="color[]" value="red">
-                                <span class="color-swatch" style="background-color: #ff0000;"></span>
-                                <span class="color-name">Rojo</span>
+                                <input type="checkbox" name="color[]" value="silver">
+                                <span class="color-swatch" style="background-color: #C0C0C0;"></span>
+                                <span class="color-name">Plateado</span>
                             </label>
                             <label class="color-option">
-                                <input type="checkbox" name="color[]" value="blue">
-                                <span class="color-swatch" style="background-color: #0000ff;"></span>
-                                <span class="color-name">Azul</span>
+                                <input type="checkbox" name="color[]" value="brown">
+                                <span class="color-swatch" style="background-color: #8B4513;"></span>
+                                <span class="color-name">Marrón</span>
                             </label>
                             <label class="color-option">
                                 <input type="checkbox" name="color[]" value="beige">
@@ -177,44 +177,53 @@
                     </div>
                     
                     <div class="filter-group">
-                        <h5 class="filter-title">Talla</h5>
-                        <div class="size-options">
-                            <label class="size-option">
-                                <input type="checkbox" name="size[]" value="xs">
-                                <span class="size-name">XS</span>
-                            </label>
-                            <label class="size-option">
-                                <input type="checkbox" name="size[]" value="s">
-                                <span class="size-name">S</span>
-                            </label>
-                            <label class="size-option">
-                                <input type="checkbox" name="size[]" value="m">
-                                <span class="size-name">M</span>
-                            </label>
-                            <label class="size-option">
-                                <input type="checkbox" name="size[]" value="l">
-                                <span class="size-name">L</span>
-                            </label>
-                            <label class="size-option">
-                                <input type="checkbox" name="size[]" value="xl">
-                                <span class="size-name">XL</span>
-                            </label>
-                        </div>
+                        <h5 class="filter-title">Material</h5>
+                        <ul class="filter-list">
+                            <li>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="material[]" value="leather">
+                                    <span>Cuero</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="material[]" value="silver">
+                                    <span>Plata</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="material[]" value="gold">
+                                    <span>Oro</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="material[]" value="silk">
+                                    <span>Seda</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="material[]" value="diamond">
+                                    <span>Diamantes</span>
+                                </label>
+                            </li>
+                        </ul>
                     </div>
                     
                     <button class="btn btn-primary w-100 mt-3">Aplicar filtros</button>
                     <button class="btn btn-outline-secondary w-100 mt-2">Limpiar</button>
                 </div>
-            </div>
-            -->
+            </div>   -->
             
             <!-- Products Grid -->
             <div class="col-lg-9">
                 
-                <!-- Products Grid 
+                <!-- FILTORS DE BUSQUEDA POR AHORA NO ACTIVOS 
                 <div class="category-header d-flex justify-content-between align-items-center mb-4">
                     <div class="showing-results">
-                        Mostrando 6 de 24 productos
+                        Mostrando 12 de 28 productos
                     </div>
                     <div class="sorting-options">
                         <select class="form-select">
@@ -228,12 +237,40 @@
                 </div>
                 -->
                 
-                <div class="row">
-                    <!-- Product 1 -->
-                    <div class="col-6 col-md-4 mb-4">
+                <div class="accessories-mosaic">
+                    <!-- Product 1 - Large -->
+                    <div class="mosaic-item mosaic-large">
                         <div class="product-card">
                             <div class="product-img">
-                                <img src="img/vestidoseda.webp" alt="Vestido de seda" class="img-fluid">
+                                <img src="assets/img/bolso.webp" alt="Bolso de cuero" class="img-fluid">
+                                <!-- ICONOS DE LAS INTERACIONES 
+                                <div class="product-actions">
+                                    <a href="#" class="product-action"><i class="fas fa-shopping-bag"></i></a>
+                                    <a href="#" class="product-action"><i class="fas fa-heart"></i></a>
+                                    <a href="#" class="product-action"><i class="fas fa-eye"></i></a>
+                                </div>
+                                -->
+                            </div>
+
+                            <div class="product-info">
+                                <h4 class="product-title">Bolso de cuero italiano</h4>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span>(42)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 2 - Medium -->
+                    <div class="mosaic-item mosaic-medium">
+                        <div class="product-card">
+                            <div class="product-img">
+                                <img src="assets/img/collar.webp" alt="Collar de plata" class="img-fluid">
                                 <!-- ICONOS DE LAS INTERACIONES 
 
                                 <div class="product-actions">
@@ -241,28 +278,28 @@
                                     <a href="#" class="product-action"><i class="fas fa-heart"></i></a>
                                     <a href="#" class="product-action"><i class="fas fa-eye"></i></a>
                                 </div>
-                                
+
                                 -->
                             </div>
                             <div class="product-info">
-                                <h4 class="product-title">Vestido de seda</h4>
+                                <h4 class="product-title">Collar de plata</h4>
                                 <div class="product-rating">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star-half-alt"></i>
-                                    <span>(24)</span>
+                                    <span>(19)</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Product 2 -->
-                    <div class="col-6 col-md-4 mb-4">
+                    <!-- Product 3 - Small -->
+                    <div class="mosaic-item mosaic-small">
                         <div class="product-card">
                             <div class="product-img">
-                                <img src="img/abrigolanamujer.webp" alt="Abrigo de lana" class="img-fluid">
+                                <img src="assets/img/gafassol.webp" alt="Gafas de sol" class="img-fluid">
                                 <!-- ICONOS DE LAS INTERACIONES 
 
                                 <div class="product-actions">
@@ -270,11 +307,11 @@
                                     <a href="#" class="product-action"><i class="fas fa-heart"></i></a>
                                     <a href="#" class="product-action"><i class="fas fa-eye"></i></a>
                                 </div>
-                                
+
                                 -->
                             </div>
                             <div class="product-info">
-                                <h4 class="product-title">Abrigo de lana</h4>
+                                <h4 class="product-title">Gafas de sol</h4>
                                 <div class="product-price">
                                 </div>
                                 <div class="product-rating">
@@ -282,47 +319,18 @@
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <span>(36)</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Product 3 -->
-                    <div class="col-6 col-md-4 mb-4">
-                        <div class="product-card">
-                            <div class="product-img">
-                                <img src="img/blusa.webp" alt="Blusa de seda" class="img-fluid">
-                                <!-- ICONOS DE LAS INTERACIONES 
-
-                                <div class="product-actions">
-                                    <a href="#" class="product-action"><i class="fas fa-shopping-bag"></i></a>
-                                    <a href="#" class="product-action"><i class="fas fa-heart"></i></a>
-                                    <a href="#" class="product-action"><i class="fas fa-eye"></i></a>
-                                </div>
-                                
-                                -->
-                            </div>
-                            <div class="product-info">
-                                <h4 class="product-title">Blusa de seda</h4>
-                                <div class="product-rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
                                     <i class="far fa-star"></i>
-                                    <span>(19)</span>
+                                    <span>(23)</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Product 4 -->
-                    <div class="col-6 col-md-4 mb-4">
+                    <!-- Product 4 - Small -->
+                    <div class="mosaic-item mosaic-small">
                         <div class="product-card">
                             <div class="product-img">
-                                <img src="img/tacones.webp" alt="Pantalón elegante" class="img-fluid">
+                                <img src="assets/img/cinturon.webp" alt="Cinturón de cuero" class="img-fluid">
                                 <!-- ICONOS DE LAS INTERACIONES 
 
                                 <div class="product-actions">
@@ -334,24 +342,24 @@
                                 -->
                             </div>
                             <div class="product-info">
-                                <h4 class="product-title">Tacones</h4>
+                                <h4 class="product-title">Cinturón de cuero</h4>
                                 <div class="product-rating">
+                                    <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star-half-alt"></i>
-                                    <i class="far fa-star"></i>
-                                    <span>(15)</span>
+                                    <span>(31)</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Product 5 -->
-                    <div class="col-6 col-md-4 mb-4">
+                    <!-- Product 5 - Medium -->
+                    <div class="mosaic-item mosaic-medium">
                         <div class="product-card">
                             <div class="product-img">
-                                <img src="img/midimujer.webp" alt="Falda plisada" class="img-fluid">
+                                <img src="assets/img/pulseraOro.webp" alt="Pulsera de oro" class="img-fluid">
                                 <!-- ICONOS DE LAS INTERACIONES 
 
                                 <div class="product-actions">
@@ -363,7 +371,7 @@
                                 -->
                             </div>
                             <div class="product-info">
-                                <h4 class="product-title">Falda plisada</h4>
+                                <h4 class="product-title">Pulsera de oro</h4>
                                 <div class="product-rating">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -376,11 +384,11 @@
                         </div>
                     </div>
                     
-                    <!-- Product 6 -->
-                    <div class="col-6 col-md-4 mb-4">
+                    <!-- Product 6 - Large -->
+                    <div class="mosaic-item mosaic-large">
                         <div class="product-card">
                             <div class="product-img">
-                                <img src="img/linomujer.webp" alt="Chaqueta de cuero" class="img-fluid">
+                                <img src="assets/img/bufanda.webp" alt="Bufanda de seda" class="img-fluid">
                                 <!-- ICONOS DE LAS INTERACIONES 
 
                                 <div class="product-actions">
@@ -392,7 +400,65 @@
                                 -->
                             </div>
                             <div class="product-info">
-                                <h4 class="product-title">Pantalon Lino </h4>
+                                <h4 class="product-title">Bufanda de seda estampada</h4>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <span>(16)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 7 - Small -->
+                    <div class="mosaic-item mosaic-small">
+                        <div class="product-card">
+                            <div class="product-img">
+                                <img src="assets/img/reloj.webp" alt="Reloj elegante" class="img-fluid">
+                                <!-- ICONOS DE LAS INTERACIONES 
+
+                                <div class="product-actions">
+                                    <a href="#" class="product-action"><i class="fas fa-shopping-bag"></i></a>
+                                    <a href="#" class="product-action"><i class="fas fa-heart"></i></a>
+                                    <a href="#" class="product-action"><i class="fas fa-eye"></i></a>
+                                </div>
+                                
+                                -->
+                            </div>
+                            <div class="product-info">
+                                <h4 class="product-title">Reloj elegante</h4>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <span>(34)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 8 - Medium -->
+                    <div class="mosaic-item mosaic-medium">
+                        <div class="product-card">
+                            <div class="product-img">
+                                <img src="assets/img/sombrero.webp" alt="Sombrero elegante" class="img-fluid">
+                                <!-- ICONOS DE LAS INTERACIONES 
+
+                                <div class="product-actions">
+                                    <a href="#" class="product-action"><i class="fas fa-shopping-bag"></i></a>
+                                    <a href="#" class="product-action"><i class="fas fa-heart"></i></a>
+                                    <a href="#" class="product-action"><i class="fas fa-eye"></i></a>
+                                </div>
+                                
+                                -->
+                            </div>
+                            <div class="product-info">
+                                <h4 class="product-title">Sombrero elegante</h4>
                                 <div class="product-price">
                                 </div>
                                 <div class="product-rating">
@@ -401,7 +467,7 @@
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="far fa-star"></i>
-                                    <span>(21)</span>
+                                    <span>(22)</span>
                                 </div>
                             </div>
                         </div>
@@ -409,86 +475,308 @@
                 </div>
                 
                 <!-- Pagination -->
-                <nav aria-label="Page navigation" class="mt-4">
+                <nav aria-label="Page navigation" class="mt-5">
                     <ul class="pagination justify-content-center">
                         <li class="page-item disabled">
                             <a class="page-link" href="#" tabindex="-1" aria-disabled="true"><i class="fas fa-chevron-left"></i></a>
                         </li>
                         <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                        <!-- Pagination  <li class="page-item"><a class="page-link" href="#">2</a></li> -->
-                        <!-- Pagination  <li class="page-item"><a class="page-link" href="#">3</a></li> -->
+                        <!-- Pagination <li class="page-item"><a class="page-link" href="#">2</a></li> -->
+                        <!-- Pagination<li class="page-item"><a class="page-link" href="#">3</a></li>  -->
                         <li class="page-item">
                             <a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a>
                         </li>
                     </ul>
                 </nav>
+                
             </div>
         </div>
     </div>
 </section>
 
-    <!-- Footer -->
+<style>
+/* Mosaico de accesorios mejorado */
+.accessories-mosaic {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 15px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.mosaic-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    background: white;
+}
+
+.mosaic-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* Definimos tamaños máximos para mantener concordancia */
+.mosaic-large {
+    grid-column: span 6;
+    grid-row: span 2;
+    max-height: none;
+}
+
+.mosaic-medium {
+    grid-column: span 4;
+    max-height: none;
+}
+
+.mosaic-small {
+    grid-column: span 3;
+    max-height: none;
+}
+
+/* Configuramos el diseño de mosaico específico para un efecto puzzle */
+.mosaic-item:nth-child(1) {
+    grid-column: span 6;
+    grid-row: span 2;
+}
+
+.mosaic-item:nth-child(2) {
+    grid-column: span 3;
+    grid-row: span 1;
+}
+
+.mosaic-item:nth-child(3) {
+    grid-column: span 3;
+    grid-row: span 1;
+}
+
+.mosaic-item:nth-child(4) {
+    grid-column: span 3;
+    grid-row: span 1;
+}
+
+.mosaic-item:nth-child(5) {
+    grid-column: span 3;
+    grid-row: span 1;
+}
+
+.mosaic-item:nth-child(6) {
+    grid-column: span 6;
+    grid-row: span 2;
+}
+
+.mosaic-item:nth-child(7) {
+    grid-column: span 3;
+    grid-row: span 1;
+}
+
+.mosaic-item:nth-child(8) {
+    grid-column: span 3;
+    grid-row: span 1;
+}
+
+.product-img {
+    overflow: hidden;
+    position: relative;
+}
+
+.product-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-img img {
+    transform: scale(1.05);
+}
+
+.product-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.product-info {
+    padding: 1rem;
+    background: white;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    max-height: 2.5rem;
+}
+
+.mosaic-large .product-title {
+    font-size: 1.1rem;
+    -webkit-line-clamp: 2;
+    max-height: 3rem;
+}
+
+.product-actions {
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    transition: all 0.3s ease;
+    opacity: 0;
+    gap: 8px;
+}
+
+.product-action {
+    background: white;
+    color: var(--primary-color);
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.product-action:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.product-card:hover .product-actions {
+    bottom: 20px;
+    opacity: 1;
+}
+
+.product-tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.8rem;
+    z-index: 2;
+    border-radius: 3px;
+}
+
+.sidebar-filters {
+    position: sticky;
+    top: 20px;
+    align-self: flex-start;
+}
+@media (max-width: 1199.98px) {
+  .accessories-mosaic {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    justify-items: center;          /* centra cada tarjeta en su celda */
+  }
+  .mosaic-item {                    /* anula spans forzados */
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+}
+
+
+/* Media queries mejorados */
+@media (max-width: 1199.98px) {
+    .mosaic-item:nth-child(n) {
+        grid-column: span 6;
+    }
+    .mosaic-item:nth-child(1),
+    .mosaic-item:nth-child(6) {
+        grid-row: span 2;
+    }
+    .mosaic-large, .mosaic-medium, .mosaic-small {
+        max-height: 450px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .accessories-mosaic {
+        grid-template-columns: repeat(6, 1fr);
+    }
+    .mosaic-item:nth-child(n) {
+        grid-column: span 3;
+        grid-row: span 1;
+    }
+    .mosaic-large, .mosaic-medium, .mosaic-small {
+        max-height: 350px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .accessories-mosaic {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 10px;
+    }
+    .mosaic-item:nth-child(n) {
+        grid-column: span 2;
+    }
+    .mosaic-large, .mosaic-medium, .mosaic-small {
+        max-height: 300px;
+    }
+}
+</style>
+
+<!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="row py-5">
-                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-                    <h5 class="footer-heading">RGG Atelier</h5>
-                    <p class="footer-text">Moda de lujo con diseños exclusivos y materiales premium. Experiencia de compra única con atención personalizada.</p>
-                    <div class="social-icons">
-                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-pinterest"></i></a>
-                    </div>
+        <div class="container py-5">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5 class="footer-heading">Romina Gutiérrez García</h5>
+                    <p class="footer-text">Diseñadora de moda enfocada en la sostenibilidad, la investigación textil y las narrativas personales.</p>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-                    <h5 class="footer-heading">Información</h5>
-                    <ul class="footer-links">
-                        <li><a href="#">Sobre nosotros</a></li>
-                        <li><a href="#">Información de contacto</a></li>
-                        <li><a href="#">Política de privacidad</a></li>
-                        <li><a href="#">Términos y condiciones</a></li>
-                        <li><a href="#">FAQ</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-                    <h5 class="footer-heading">Cuenta</h5>
-                    <ul class="footer-links">
-                        <li><a href="#">Mi cuenta</a></li>
-                        <li><a href="#">Carrito</a></li>
-                        <li><a href="#">Lista de deseos</a></li>
-                        <li><a href="#">Seguimiento de pedido</a></li>
-                        <li><a href="#">Ayuda</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                <div class="col-lg-4">
                     <h5 class="footer-heading">Contacto</h5>
                     <ul class="contact-info">
-                        <li><i class="fas fa-map-marker-alt"></i> Calle Serrano 15, Madrid</li>
-                        <li><i class="fas fa-phone"></i> +34 912 345 678</li>
-                        <li><i class="fas fa-envelope"></i> info@luxe.com</li>
-                        <li><i class="fas fa-clock"></i> Lun - Sáb: 10:00 - 20:00</li>
+                        <li><i class="fas fa-envelope"></i> romina.gutierrez@atelier.com</li>
+                        <li><i class="fas fa-location-dot"></i> Madrid · Disponible para colaboraciones</li>
+                        <li><i class="fas fa-download"></i> <a href="colecciones.html">Ver portafolio completo</a></li>
                     </ul>
                 </div>
-            </div>
-            <div class="row py-3 border-top">
-                <div class="col-md-6 text-center text-md-start">
-                    <p class="mb-0">© 2023 LUXE. Todos los derechos reservados.</p>
+                <div class="col-lg-4">
+                    <h5 class="footer-heading">Redes</h5>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com" target="_blank" rel="noopener" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com" target="_blank" rel="noopener" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="mailto:romina.gutierrez@atelier.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+                    </div>
                 </div>
-                <div class="col-md-6 text-center text-md-end">
-                    <img src="img/payment-methods.png" alt="Métodos de pago" class="payment-methods">
+            </div>
+            <div class="row pt-4 mt-3 border-top">
+                <div class="col text-center">
+                    <p class="mb-0">© 2025 Romina Gutiérrez García. Diseñado para compartir creatividad.</p>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Bootstrap JS with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- AOS Animation JS -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="js/admin-config.js"></script>
-    <script src="js/auth.js"></script>
-    <!-- Custom JS -->
-    <script src="js/script.js"></script>
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="js/admin-config.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/script.js"></script>
+<script>
+    AOS.init({
+        duration: 800,
+        once: true
+    });
+</script>
 </body>
 </html> 

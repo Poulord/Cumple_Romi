@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colección Esencia Sostenible - RGG Atelier</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar d-none d-lg-block">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-7">
+                    <span><i class="fas fa-crown me-2"></i>Portfolio personal de Romina Gutiérrez García — Diseñadora de moda</span>
+                </div>
+                <div class="col-md-5 text-end">
+                    <span class="me-3"><i class="fas fa-envelope-open me-2"></i>romina.gutierrez@atelier.com</span>
+                    <a href="https://www.instagram.com" class="me-3" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">RGG Atelier</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="colecciones.html">Colecciones</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="galeria.html">Galería</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="nuestra-historia.html">¿Quién soy?</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="mujer.html">Mujer</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="hombre.html">Hombre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="accesorios.html">Accesorios</a>
+                    </li>
+                    <li class="nav-item d-none" data-admin-only>
+                        <a class="nav-link" href="cumpleanos.html"><i class="fas fa-gift me-2"></i>Cumpleaños</a>
+                    </li>
+                </ul>
+                <div class="navbar-nav ms-auto nav-icons align-items-center gap-2">
+                    <a class="nav-link" href="galeria.html" title="Galería destacada">
+                        <i class="fas fa-images"></i><span>Portfolio</span>
+                    </a>
+                    <a class="nav-link" href="login.html" data-login-link title="Acceso privado">
+                        <i class="fas fa-user-lock"></i><span>Acceder</span>
+                    </a>
+                    <span class="nav-link admin-pill d-none" data-admin-pill>
+                        <i class="fas fa-crown"></i>
+                        <span data-admin-name></span>
+                    </span>
+                    <a class="nav-link d-none" href="#" data-logout-link title="Cerrar sesión">
+                        <i class="fas fa-sign-out-alt"></i><span>Salir</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="container py-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="colecciones.html">Colecciones</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Esencia Sostenible</li>
+            </ol>
+        </nav>
+    </div>
+
+    <section class="collection-hero" style="background-image: url('assets/img/sostenible.webp');">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <span class="badge bg-light text-dark mb-3">Eco-friendly</span>
+                    <h1>Colección "Esencia Sostenible"</h1>
+                    <p>Moda consciente creada con materiales reciclados, procesos responsables y una estética depurada que honra al planeta.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="collection-overview">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <img src="assets/img/sostenible.webp" alt="Editorial sostenible" class="img-fluid rounded shadow">
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="collection-text">
+                        <h2 class="section-title">Lujo responsable</h2>
+                        <p class="lead">Creamos piezas longevas con impacto ambiental reducido, garantizando transparencia en toda la cadena de valor.</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Tejidos reciclados post-consumo certificados GRS.</li>
+                            <li><i class="fas fa-check"></i> Tinturas vegetales de bajo consumo hídrico.</li>
+                            <li><i class="fas fa-check"></i> Trazabilidad digital para conocer el origen de cada materia prima.</li>
+                            <li><i class="fas fa-check"></i> Programa de recompra y reciclaje de prendas al finalizar su ciclo.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="signature-pieces">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-12 text-center" data-aos="fade-up">
+                    <h2 class="section-title">Piezas insignia</h2>
+                    <p class="section-subtitle">Diseños conscientes que equilibran estilo y sostenibilidad.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="assets/img/abrigolanamujer.webp" alt="Abrigo lana reciclada" class="img-fluid">
+                        </div>
+                        <div class="product-info">
+                            <h4 class="product-title">Abrigo lana reciclada</h4>
+                            <p class="text-muted">Hecho con fibras recuperadas y botones de cáscara de coco.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="assets/img/pantalonchino.webp" alt="Pantalón cáñamo" class="img-fluid">
+                        </div>
+                        <div class="product-info">
+                            <h4 class="product-title">Pantalón cáñamo</h4>
+                            <p class="text-muted">Tejido de cáñamo orgánico con tintura natural en tonos tierra.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="assets/img/sombrero.webp" alt="Sombrero fibra de palma" class="img-fluid">
+                        </div>
+                        <div class="product-info">
+                            <h4 class="product-title">Sombrero fibra de palma</h4>
+                            <p class="text-muted">Trenzado a mano por artesanos locales con acabado hidrofugado natural.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="collection-narrative">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-5" data-aos="fade-right">
+                    <h2 class="section-title">Narrativa creativa</h2>
+                    <p>Esencia Sostenible responde al compromiso de la firma con una moda regenerativa y consciente.</p>
+                    <blockquote>“Creemos que el verdadero lujo es cuidar del planeta. Esta colección demuestra que el diseño responsable también puede ser extraordinario.” — Romina Gutiérrez</blockquote>
+                </div>
+                <div class="col-lg-7" data-aos="fade-left">
+                    <img src="assets/img/sostenible.webp" alt="Editorial Esencia Sostenible" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="collection-cta">
+        <div class="container">
+            <h2>Conoce nuestro programa circular</h2>
+            <p>Inscríbete para recibir información sobre talleres de cuidado, reparación y reciclaje de prendas.</p>
+            <a href="mailto:romina.gutierrez@atelier.com" class="btn btn-outline-light">Unirme al programa</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container py-5">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5 class="footer-heading">Romina Gutiérrez García</h5>
+                    <p class="footer-text">Diseñadora de moda enfocada en la sostenibilidad, la investigación textil y las narrativas personales.</p>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="footer-heading">Contacto</h5>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-envelope"></i> romina.gutierrez@atelier.com</li>
+                        <li><i class="fas fa-location-dot"></i> Madrid · Disponible para colaboraciones</li>
+                        <li><i class="fas fa-download"></i> <a href="colecciones.html">Ver portafolio completo</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="footer-heading">Redes</h5>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com" target="_blank" rel="noopener" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com" target="_blank" rel="noopener" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="mailto:romina.gutierrez@atelier.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row pt-4 mt-3 border-top">
+                <div class="col text-center">
+                    <p class="mb-0">© 2025 Romina Gutiérrez García. Diseñado para compartir creatividad.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/admin-config.js"></script>
+    <script src="js/auth.js"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body>
+</html>
