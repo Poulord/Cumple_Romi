@@ -59,7 +59,13 @@
     </section>
   </main>
 
-  <script src="js/admin-config.js"></script>
+  <!-- 1) librería oficial (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <!-- 2) tu cliente -->
+  <script src="js/supabaseClient.js"></script>
+
+  <!-- 3) tu módulo de autenticación -->
   <script src="js/auth.js"></script>
   <script>
     function togglePassword() {
