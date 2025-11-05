@@ -1,6 +1,8 @@
 (function () {
 
-  const DEFAULT_ADMIN_USERS = {};
+  
+  const DEFAULT_ADMIN_USERS = {
+  };
 
   const buildAdminDirectory = () => {
     const configuredUsers =
