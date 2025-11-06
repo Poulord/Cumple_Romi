@@ -753,7 +753,9 @@ Footer
 
 .footer {
     background-color: var(--primary-color);
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.9);
+    padding: 2rem 0; /* más espacio para que destaque */
+    border-top: 4px solid var(--secondary-color); 
 }
 
 .footer-heading {
@@ -1350,7 +1352,7 @@ About Page
 }
 
 .timeline-item {
-    padding: 10px 40px;
+    padding: 10px 1rem;
     position: relative;
     width: 50%;
     box-sizing: border-box;
@@ -1641,3 +1643,102 @@ Collection Detail Pages
         padding: 0.75rem;
     }
 }
+
+/* =========================
+   Compact layout overrides
+   - Valores conservadores pero más compactos para reducir gutters y paddings
+   - Usa !important para forzar sobre clases de bootstrap/anteriores y facilitar pruebas rápidas
+   Ajusta estos valores si quieres aún más compacto.
+   ========================= */
+
+/* Containers (reduce gutters globales) */
+.container, .container-fluid {
+    max-width: 1400px !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+}
+
+/* Reduce Bootstrap-style gutters by narrowing .row negative margins and column paddings.
+   This targets the common Bootstrap pattern: .row has negative margins and .col* have padding.
+*/
+.row {
+    margin-left: -0.5rem !important;
+    margin-right: -0.5rem !important;
+}
+.row > [class*="col-"] {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+}
+
+/* Navbar slightly tighter */
+.navbar {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+}
+
+/* Reduce horizontal paddings inside common content blocks */
+.category-content,
+.about-content,
+.featured-content,
+.promo-content,
+.testimonial-content,
+.collection-overview .collection-text {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+}
+
+/* Product / card spacing */
+.product-img {
+    padding: 0.5rem !important;
+    min-height: 260px; /* conserva aspecto pero ocupa más ancho visible */
+}
+
+.product-info {
+    padding: 0.5rem 0.6rem !important;
+}
+
+.featured-content {
+    padding: 1rem !important;
+}
+
+/* Promo, about and other blocks */
+.promo-content {
+    padding: 1rem !important;
+}
+
+.about-content {
+    padding: 0.5rem !important;
+}
+
+/* Testimonials */
+.testimonial-content {
+    padding: 1rem !important;
+}
+
+/* Reduce footer vertical size (keeps visible top border) */
+.footer {
+    padding: 1rem 0 !important;
+}
+
+/* Misc small adjustments */
+.section-title { margin-bottom: 0.4rem !important; }
+.section-subtitle { margin-bottom: 0.6rem !important; }
+
+/* Mobile specific - compress vertical paddings a bit */
+@media (max-width: 767.98px) {
+    .container, .container-fluid { padding-left: 0.5rem !important; padding-right: 0.5rem !important; }
+    .hero-section { height: 78vh !important; }
+}
+
+
+/* Quick global override: reducir gutters laterales para toda la web
+   - reduce el padding horizontal de los contenedores
+   - amplía ligeramente el max-width para que el contenido ocupe más espacio
+   Este es un cambio global y minimalista para que notes el efecto en todas las páginas.
+*/
+.container, .container-fluid {
+    max-width: 1300px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
