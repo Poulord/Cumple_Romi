@@ -26,6 +26,7 @@ public/
   coleccion-serenidad-mediterranea.html
   assets/
     css/
+      categorias.css
       style.css
       login.css
       estilos.css
