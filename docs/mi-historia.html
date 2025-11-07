@@ -109,6 +109,87 @@
             padding: 2rem 0;
             margin-top: 4rem;
         }
+
+  /* Grid de 3 columnas: fotos izquierda — timeline — fotos derecha */
+  .life-grid{
+    display: grid;
+    grid-template-columns: 1fr minmax(560px, 760px) 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+  @media (max-width: 1200px){
+    .life-grid{ grid-template-columns: 1fr minmax(520px, 1fr) 1fr; }
+  }
+  @media (max-width: 992px){
+    .life-grid{ grid-template-columns: 1fr; }
+    .side-rail{ display: none; } /* ocultamos laterales en móvil/tablet */
+  }
+
+  /* Columna lateral con fotos “sticky” */
+  .side-rail{
+    position: sticky;
+    top: 6rem;            /* se fija al hacer scroll */
+    display: grid;
+    gap: 1rem;
+    align-content: start;
+  }
+  .side-photo{
+    margin: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(166,124,82,0.12);
+    box-shadow: 0 10px 28px rgba(15,23,42,0.12);
+    background: #fff;
+  }
+  .side-photo img{
+    width: 100%;
+    height: 260px;        /* puedes alternar alturas p/ efecto mosaico */
+    object-fit: cover;
+    display: block;
+  }
+  .side-photo.tall img{ height: 340px; }
+  .side-photo.short img{ height: 200px; }
+  .side-caption{
+    padding: .6rem .85rem;
+    font-size: .85rem;
+    color: #555;
+    background: #fff;
+  }
+
+  /* Ajustes suaves del timeline existente */
+  .timeline{ margin: 0; }               /* sin desplazamientos raros */
+  .timeline-item{ margin-bottom: 1.25rem; }
+
+
+
+
+/* Sección de video final */
+  .video-section {
+    text-align: center;
+  }
+
+  .video-wrapper {
+    position: relative;
+    max-width: 780px;
+    margin: 0 auto;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.15);
+  }
+
+  .video-wrapper video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: none;
+    outline: none;
+  }
+
+  .video-section h2 {
+    font-family: var(--font-secondary, "Playfair Display", serif);
+    color: var(--dark-color, #111);
+  }
+
     </style>
 </head>
 <body data-require-admin>
@@ -165,79 +246,210 @@
                     <p class="text-muted">Un recorrido por los momentos que te han traído hasta aquí. Desde los primeros bocetos en la libreta del colegio hasta tu colección más reciente en pasarela.</p>
                     <div class="d-flex gap-3 mt-4">
                         <a href="cumpleanos.html" class="btn btn-outline-dark"><i class="fas fa-arrow-left me-2"></i>Volver a la zona privada</a>
-                        <a href="juego.html" class="btn btn-dark"><i class="fas fa-gamepad me-2"></i>Continuar con el juego</a>
+                        <a href="#" class="btn btn-dark"><i class="fas fa-gamepad me-2"></i>Continuar con el juego</a>  <!-- Enlace a Juego.html quitado -->
                     </div>
                 </div>
+
                 <div class="col-lg-5">
                     <div class="story-gallery">
                         <figure>
-                            <img src="assets/img/vestidomujer.webp" alt="Primer vestido">
-                            <figcaption>Primer diseño presentado en público (2014)</figcaption>
+                            <img src="assets/img/Romina-Pequeña-1.jpg" alt="Primer vestido">
+                            <figcaption>Foto antigua (2014)</figcaption>
                         </figure>
                         <figure>
-                            <img src="assets/img/linomujer.webp" alt="Colección lino">
-                            <figcaption>Colección cápsula en lino orgánico (2021)</figcaption>
+                            <img src="assets/img/IG_2.jpg" alt="Colección lino">
+                            <figcaption>Foto reciente(2024)</figcaption>
                         </figure>
-                    </div>
+                    </div> 
                 </div>
+                  <!-- Artículo central (tu texto) -->
+                <article class="feature-card">
+                    <div class="feature-eyebrow">2025 · 20 años</div>
+                    <h2>Una historia de fuerza y autenticidad</h2>
+                    <p>
+                        A sus 20 años, Romina Gutiérrez es mucho más que una diseñadora en formación:
+                        es una mujer fuerte, madura y asertiva que ha aprendido a transformar las pérdidas en impulso.
+                        Creció con una entereza admirable, marcada por la ausencia de su padre y, más tarde,
+                        por la despedida de su tía y su abuelo. Tres ausencias que dejaron huella,
+                        pero también una lección invaluable sobre el amor, la resiliencia y el cuidado de lo esencial.
+                    </p>
+                    <p>
+                        Hoy, Romina es sinónimo de curiosidad, inteligencia y sensibilidad.
+                        Tiene una mente analítica, una empatía profunda y una madurez poco común para su edad.
+                        Pero, sobre todo, es alguien en quien realmente se puede confiar: una presencia estable y sincera
+                        que sabe escuchar, acompañar y comprender sin pedir nada a cambio.
+                    </p>
+                    <p>
+                        Cada paso —desde los bocetos de niña hasta los desfiles de hoy— reafirma su esencia:
+                        no diseña solo con la mente, también con el alma. Observa el mundo con curiosidad,
+                        lo analiza con lucidez y lo enfrenta con valentía, sin perder su ternura ni su sentido de justicia.
+                    </p>
+                </article>
+
+            </div>
+            
+            
+
+            <div class="life-grid">
+
+            <!-- Lateral izquierdo -->
+            <aside class="side-rail">
+                <figure class="side-photo tall">
+                    <img src="assets/img/Romina-Pequeña-1.jpg" alt="Romina pequeña">
+                    <figcaption class="side-caption">Recuerdo de infancia (2014)</figcaption>
+                </figure>
+                <figure class="side-photo short">
+                    <img src="assets/img/Romina-Pequeña-4.jpg" alt="Sesión reciente">
+                    <figcaption class="side-caption"><!-- Aqui puede haber info --></figcaption>
+                </figure>
+                <figure class="side-photo">
+                    <img src="assets/img/Romina-Pequeña-3.jpg" alt="Bocetos">
+                    <figcaption class="side-caption"><!-- Aqui puede haber info --></figcaption>
+                </figure>
+            </aside>
+
+
+            <!-- Timeline (centro) -->
+            <div class="timeline">
+
+            <article class="timeline-item">
+                <div class="timeline-year">2005</div>
+                <h3 class="h4">Una infancia luminosa</h3>
+                <p>
+                Desde pequeña destacabas por tu mirada curiosa y tu forma de ver la vida con ternura y determinación. 
+                A pesar de crecer entre ausencias, supiste transformar el dolor en comprensión y empatía. 
+                </p>
+            </article>
+
+            <article class="timeline-item">
+                <div class="timeline-year">2010</div>
+                <h3 class="h4">El despertar creativo</h3>
+                <p>
+                Siempre encontrabas formas de expresarte: dibujando, combinando prendas o creando con lo que tuvieras a mano. 
+                La moda se convirtió pronto en tu refugio y en una forma de entender el mundo —un espacio donde podías ser libre, auténtica y fiel a ti misma.
+                </p>
+            </article>
+
+            <article class="timeline-item">
+                <div class="timeline-year">2019</div>
+                <h3 class="h4">La mirada del cambio</h3>
+                <p>
+                Con los años llegaron nuevos retos y también nuevas pérdidas. Pero lejos de quebrarte, te hicieron más fuerte. 
+                Aprendiste a mirar la vida con madurez, a cuidar de los tuyos y a convertir la vulnerabilidad en tu mayor fuente de poder. 
+                </p>
+            </article>
+
+            <article class="timeline-item">
+                <div class="timeline-year">2023</div>
+                <h3 class="h4">Primeros pasos en el diseño</h3>
+                <p>
+                Decidiste dedicarte de lleno a la moda y comenzaste tus estudios con pasión y disciplina. 
+                Te descubriste no solo como creadora, sino también como pensadora: alguien capaz de unir estética, emoción y reflexión en cada diseño. 
+                </p>
+            </article>
+
+            <article class="timeline-item">
+                <div class="timeline-year">2024</div>
+                <h3 class="h4">Una voz propia</h3>
+                <p>
+                Durante tus proyectos y prácticas, encontraste tu estilo: elegante, emocional y honesto. 
+                Supiste colaborar, escuchar y liderar con calma y convicción, dejando huella en quienes te rodean. 
+                </p>
+            </article>
+
+            <article class="timeline-item">
+                <div class="timeline-year">2025</div>
+                <h3 class="h4">Presente y futuro</h3>
+                <p>
+                Hoy eres una joven adulta fuerte, empática y segura. 
+                Sigues construyendo tu camino con la serenidad de quien ha aprendido a perder, sanar y volver a empezar sin miedo. 
+                Tu historia no es solo la de una diseñadora: es la de una mujer que inspira confianza, respeto y admiración.
+                </p>
+            </article>
             </div>
 
-            <div class="timeline">
-                <article class="timeline-item">
-                    <div class="timeline-year">2002</div>
-                    <h3 class="h4">El inicio entre telas</h3>
-                    <p>Con apenas 6 años, cortabas retales junto a la abuela Romi para vestir a tus muñecas. Allí nació tu fascinación por transformar telas en historias.</p>
-                </article>
 
-                <article class="timeline-item">
-                    <div class="timeline-year">2013</div>
-                    <h3 class="h4">Primera máquina propia</h3>
-                    <p>Con los ahorros familiares llegó tu primera máquina de coser. La utilizaste para confeccionar los vestuarios del festival de fin de curso.</p>
-                </article>
-
-                <article class="timeline-item">
-                    <div class="timeline-year">2018</div>
-                    <h3 class="h4">Entrada en Diseño de Moda</h3>
-                    <p>Accediste a la Escuela Superior de Diseño. Descubriste el patronaje, la ilustración y la responsabilidad de crear moda con propósito.</p>
-                </article>
-
-                <article class="timeline-item">
-                    <div class="timeline-year">2021</div>
-                    <h3 class="h4">Colección "Raíces"</h3>
-                    <p>Tu primer proyecto integral: reinterpretar la memoria familiar en prendas modulables. La colección se presentó en la pasarela joven de Madrid con ovación.</p>
-                </article>
-
-                <article class="timeline-item">
-                    <div class="timeline-year">2023</div>
-                    <h3 class="h4">Prácticas en atelier</h3>
-                    <p>Trabajaste en un atelier de moda sostenible. Aprendiste a trabajar con proveedores locales y a supervisar cada detalle de producción.</p>
-                </article>
-
-                <article class="timeline-item">
-                    <div class="timeline-year">2024</div>
-                    <h3 class="h4">Pasarela final y visión de futuro</h3>
-                    <p>Tu colección final combinó tejidos reciclados, bordados artesanales y tecnología 3D. Marcó la visión de tu marca: moda emocional, responsable y valiente.</p>
-                </article>
+            <!-- Lateral derecho  -->
+            <aside class="side-rail">
+                <figure class="side-photo">
+                <img src="assets/img/Romina-Pequeña-5.jpg" alt="Backstage">
+                <figcaption class="side-caption"><!-- Aqui puede haber info --></figcaption>
+                </figure>
+                <figure class="side-photo tall">
+                <img src="assets/img/Romina-pequeña-2.jpg" alt="Detalle texturas">
+                <figcaption class="side-caption"><!-- Aqui puede haber info --></figcaption>
+                </figure>
+                <figure class="side-photo short">
+                <img src="assets/img/Romina-pequeña-6.jpg" alt="Procesos">
+                <figcaption class="side-caption"><!-- Aqui puede haber info --></figcaption>
+                </figure>
+            </aside>
             </div>
 
             <div class="row g-4 align-items-center mt-5">
                 <div class="col-lg-6">
                     <div class="quote-card">
                         <p class="fs-4 mb-4">"Romina nunca diseñó solo prendas; diseña sensaciones. Cada colección es un refugio donde el pasado y el futuro dialogan."</p>
-                        <p class="mb-0">— Testimonio de Jorge Linares, profesor de proyectos</p>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <h2 class="section-title">Lo que viene</h2>
-                    <p class="text-muted">Sigues construyendo un archivo vivo. Próximos pasos:</p>
                     <ul class="list-unstyled fs-6">
                         <li class="mb-2"><i class="fas fa-check text-secondary me-2"></i>Residencia en un atelier europeo para explorar nuevas técnicas.</li>
                         <li class="mb-2"><i class="fas fa-check text-secondary me-2"></i>Publicar tu fanzine de procesos creativos y bocetos personales.</li>
-                        <li class="mb-2"><i class="fas fa-check text-secondary me-2"></i>Presentar una colección cápsula genderless con tejidos reciclados.</li>
+                        <li class="mb-2"><i class="fas fa-check text-secondary me-2"></i>¡Presentar nuevas colecciones!.</li>
                     </ul>
                 </div>
             </div>
+            
+        <section class="mt-5">
+        <div class="quote-card">
+            <h3 class="h4 mb-4">Carta de Pablo a Romina</h3>
+            <p class="mb-3">
+            Muy buenas peque, ¿cómo andas?, ¿qué tal está yendo estos días en el retiro Effetá? Te escribo porque mediante esta carta te quiero mostrar todo lo que ya sabes y lo que no, 
+            ya que como ya deberías saber eres una persona ejemplar y especial para mí.
+            </p>
+            <p>
+            Lo cierto es que no sé ni cómo empezar esta carta, así que directamente te expondré parte de mí y seré simplemente yo. 
+            Romina, eres una chica magnífica. Tu existencia me da luz y fuerza para seguir adelante. Eres como una estrella ante mis ojos: 
+            resplandeciente, necesaria y cálida, capaz de iluminar mi camino dondequiera que esté. 
+            Esto no te lo digo para hacerte sentir bien, sino porque es verdad.
+            </p>
+            <p>
+            Como ya sabes, mi infancia tampoco fue fácil. Vivimos sin una figura paterna, con dificultades y conflictos, pero incluso en medio de eso, 
+            siempre hubo una pequeña luz. Alguien que, sin obligación, estaba ahí, que me veía y me escuchaba cuando nadie más lo hacía. Esa persona fuiste tú. 
+            Has sido mi guardiana, mi faro en la tormenta.
+            </p>
+            <p>
+            Eres la chica más inteligente y madura que he conocido, con una empatía inmensa y un sentido de la verdad que admiro profundamente. 
+            Eres responsable, amable, directa cuando hace falta, y con un corazón tan grande que a veces no cabe en ti. 
+            Te mereces todo lo bueno del mundo, porque has hecho por los demás lo que muy pocos son capaces de hacer.
+            </p>
+            <p class="mb-0">
+            Con todo mi cariño, gracias por ser tú. Por tu fuerza, por tu luz, y por recordarme siempre que la familia no solo se hereda, 
+            también se elige.  
+            </p>
+            <p class="mt-4 mb-0 text-end fw-semibold">— Pablo García Ollero</p>
         </div>
+        </section>
+        </div>
+<!-- === Sección de video final === -->
+<section class="video-section mt-5 mb-5 text-center">
+  <div class="container">
+    <h2 class="mb-3 fw-semibold">Momentos que cuentan nuestra historia</h2>
+    <p class="text-muted mb-4">30 segundos de recuerdos, fuerza y cariño. Porque cada imagen guarda una parte de ti.</p>
+    
+    <div class="video-wrapper">
+      <video controls preload="metadata" poster="assets/img/cover-video.jpg">
+        <source src="assets/video/romina-memories.mp4" type="video/mp4">
+        Tu navegador no soporta la reproducción de video.
+      </video>
+    </div>
+  </div>
+</section>
+
+
+
     </main>
 
     <footer class="private-footer">
